@@ -1,9 +1,6 @@
 # Adobe Experience Manager
 
-For this guide you need to install some software:
-- JDK 8
-- Apache Maven
-- IntelliJ IDEA
+For this guide you need to install some software: JDK 8, Apache Maven, IntelliJ IDEA
 
 Table of contents
 - [Adobe Experience Manager](#adobe-experience-manager)
