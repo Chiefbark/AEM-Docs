@@ -8,6 +8,7 @@ Table of contents
   - [Create a project](#create-a-project)
   - [Import a project](#import-a-project)
   - [Project structure](#project-structure)
+  - [Push a project to AEM server instance](#push-a-project-to-aem-server-instance)
 
 ## Create a project
 
@@ -31,6 +32,7 @@ Open IntelliJ and click on `import project...`. Browse to the path where you cre
 
 Once you have imported the project, you will see a folder structure like this:
 ![Project structure](assets/project_structure.png)
+
 
 ## Project structure
 
@@ -61,3 +63,23 @@ Here there are many folders which are not interesting for now. We just want to k
 
 - **components**: stores all the components you have created, and some that comes already made
 - **clientlibs**: stores all the css & js files associated to each component
+
+## Push a project to AEM server instance
+
+In order to push your project, you may need to have your server instance running.
+
+The command you need to run is:
+```
+mvn clean install -PautoInstallPackage -PautoInstallBundle -Padobe-public
+```
+
+Once the command ends, your project will be published and you can manage it from the web.
+
+
+In the [next chapter](aem_interface/Readme.md) we will see how does AEM work and will move over the web.
+
+---
+
+**Guide contents**
+- [Maven Project](maven_project/Readme.md)
+- [AEM Interface](aem_interface/Readme.md)
