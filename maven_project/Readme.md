@@ -1,10 +1,10 @@
-# First Steps
+# Maven Project
 
 We will create a new maven project for AEM and explain the basic structure.
 
 Table of contents
 
-- [First Steps](#first-steps)
+- [Maven Project](#maven-project)
   - [Create a project](#create-a-project)
   - [Import a project](#import-a-project)
   - [Project structure](#project-structure)
