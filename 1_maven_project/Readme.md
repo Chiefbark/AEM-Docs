@@ -76,7 +76,7 @@ mvn clean install -PautoInstallPackage -PautoInstallBundle -Padobe-public
 Once the command ends, your project will be published and you can manage it from the web.
 
 
-In the [next chapter](aem_interface/Readme.md) we will see how does AEM work and will move over the web.
+In the [next chapter](../2_aem_interface/Readme.md) (AEM Interface) we will see how does AEM work and will move over the web.
 
 ---
 
