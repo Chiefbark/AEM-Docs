@@ -28,7 +28,7 @@ Download and install JDK 8 from [here](https://www.oracle.com/java/technologies/
 
 Apache Maven is a software project management, which we are going to use to define the structure of our projects. Download the binary zip from [here](https://maven.apache.org/download.cgi).
 
-Extract the zip under the path `C:\` and browse to `maven\apache-maven-X.X.X\`. There you can find a file named `settings.xml`. You need to replace it with [this file](assets/settings.xml) or copy the file found [here](https://helpx.adobe.com/experience-manager/using/maven_arch13.html).
+Extract the zip under the path `C:\` and browse to `maven\apache-maven-X.X.X\`. There you can find a file named `settings.xml`. You need to replace it with the .xml file found [here](https://helpx.adobe.com/experience-manager/using/maven_arch13.html).
 
 ## IntelliJ IDEA
 
