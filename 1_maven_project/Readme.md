@@ -24,7 +24,7 @@ This command will download the necessary files and will promt you to enter some 
 - **artifactId**: Base Maven ArtifactId: `audi`
 - **appTitle**: Will be used for website title and components groups: `Audi`
 
-We will be working on an [Audi concessionaire](https://www.audi.es/es/web/es.html). All the assets we will be using hare from there.
+We will be working on an [Audi concessionaire](https://www.audi.es/es/web/es.html). All the assets we will be using are from there.
 
 Once you have enter all those fields, validate the command pressing `y`.
 
