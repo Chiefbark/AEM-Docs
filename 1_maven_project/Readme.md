@@ -33,7 +33,7 @@ Once you have enter all those fields, validate the command pressing `y`.
 Open IntelliJ and click on `import project...`. Browse to the path where you created the project and select it.
 
 Once you have imported the project, you will see a folder structure like this:
-![Project structure](assets/project_structure.png)
+![Project structure](assets/structure_project.png)
 
 
 ## Project structure
@@ -48,7 +48,7 @@ The most important ones for now are `core` and `apps`.
 
 **core**
 
-![Core structure](assets/core_structure.png)
+![Core structure](assets/structure_core.png)
 
 Inside the core package, you can find 5 other package
 - **filters**: filters the requests before dispatching them to the servlet
@@ -59,7 +59,7 @@ Inside the core package, you can find 5 other package
 
 **apps**
 
-![Apps structure](assets/apps_structure.png)
+![Apps structure](assets/structure_apps.png)
 
 Here there are many folders which are not interesting for now. We just want to know which are `components` and `clientlibs`.
 
