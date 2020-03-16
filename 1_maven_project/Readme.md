@@ -38,11 +38,11 @@ Once you have imported the project, you will see a folder structure like this:
 
 ## Project structure
 
-- **core**: package where the .java files are located
-- **launcher**: package with code that will link the JUnit executions
-- **tests**: package where the server-side JUnit is located
-- **apps**: package where the components and the js/css files are located
-- **content**: package that contains the structural content like templates or sites
+- **core** Package where the .java files are located
+- **launcher** Package with code that will link the JUnit executions
+- **tests** Package where the server-side JUnit is located
+- **apps** Package where the components and the js/css files are located
+- **content** Package that contains the structural content like templates or sites
 
 The most important ones for now are `core` and `apps`.
 
@@ -51,11 +51,11 @@ The most important ones for now are `core` and `apps`.
 ![Core structure](assets/structure_core.png)
 
 Inside the core package, you can find 5 other package
-- **filters**: filters the requests before dispatching them to the servlet
-- **listeners**: detects every change on the resource structure
-- **models**: stores the .java files that are associated with the components
-- **schedulers**: stores cron-jobs
-- **servlets**: renders the output of specific request like POST or GET
+- **filters** Filters the requests before dispatching them to the servlet
+- **listeners** Detects every change on the resource structure
+- **models** Stores the .java files that are associated with the components
+- **schedulers** Stores cron-jobs
+- **servlets** Renders the output of specific request like POST or GET
 
 **apps**
 
@@ -63,8 +63,8 @@ Inside the core package, you can find 5 other package
 
 Here there are many folders which are not interesting for now. We just want to know which are `components` and `clientlibs`.
 
-- **components**: stores all the components you have created, and some that comes already made
-- **clientlibs**: stores all the css & js files associated to each component
+- **components** Stores all the components you have created, and some that comes already made
+- **clientlibs** Stores all the css & js files associated to each component
 
 ## Push a project to AEM server instance
 
