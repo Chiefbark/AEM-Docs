@@ -17,14 +17,14 @@ In order to create a project, move to your desired folder (example: `C:\Users\my
 mvn archetype:generate -DarchetypeGroupId=com.adobe.granite.archetypes -DarchetypeArtifactId=aem-project-archetype -DarchetypeVersion=23 -DarchetypeRepository=https://repo.adobe.com/nexus/content/groups/public
 ```
 This command will download the necessary files and will promt you to enter some fields:
-- **groupId**: Base Maven groupId: `com.audi`
+- **groupId**: Base Maven groupId: `com.funko`
 - **version**: Version of the project: `0.0.1`
-- **package**: Java Source Package: `com.audi`
-- **appId**: Will be used for component/config/content folders and css ids: `audi`
-- **artifactId**: Base Maven ArtifactId: `audi`
-- **appTitle**: Will be used for website title and components groups: `Audi`
+- **package**: Java Source Package: `com.funko`
+- **appId**: Will be used for component/config/content folders and css ids: `funko`
+- **artifactId**: Base Maven ArtifactId: `funko`
+- **appTitle**: Will be used for website title and components groups: `Funko`
 
-We will be working on an [Audi concessionaire](https://www.audi.es/es/web/es.html). All the assets we will be using are from there.
+We will be working on a [Funko shop](https://www.funko.com/). All the assets we will be using are from there.
 
 Once you have enter all those fields, validate the command pressing `y`.
 
