@@ -10,6 +10,9 @@ We will create a new maven project for AEM and explain the basic structure.
   - [Create a project](#create-a-project)
   - [Import a project](#import-a-project)
   - [Project structure](#project-structure)
+    - [core](#core)
+    - [apps](#apps)
+    - [content](#content)
   - [Push a project to AEM server instance](#push-a-project-to-aem-server-instance)
 
 ## Create a project
@@ -35,7 +38,7 @@ Once you have enter all those fields, validate the command pressing `y`.
 Open IntelliJ and click on `import project...`. Browse to the path where you created the project and select it.
 
 Once you have imported the project, you will see a folder structure like this:
-![Project structure](assets/structure_project.png)
+![structure_project](assets/structure_project.png)
 
 
 ## Project structure
@@ -46,11 +49,11 @@ Once you have imported the project, you will see a folder structure like this:
 - **apps** Package where the components and the js/css files are located
 - **content** Package that contains the structural content like templates or sites
 
-The most important ones for now are `core` and `apps`.
+The most important ones for now are `core`, `apps` and `content`.
 
-**core**
+### core
 
-![Core structure](assets/structure_core.png)
+![structure_core](assets/structure_core.png)
 
 Inside the core package, you can find 5 other package
 - **filters** Filters the requests before dispatching them to the servlet
@@ -59,14 +62,23 @@ Inside the core package, you can find 5 other package
 - **schedulers** Stores cron-jobs
 - **servlets** Renders the output of specific request like POST or GET
 
-**apps**
+### apps
 
-![Apps structure](assets/structure_apps.png)
+![structure_apps](assets/structure_apps.png)
 
-Here there are many folders which are not interesting for now. We just want to know which are `components` and `clientlibs`.
+Here there are many folders which are not interesting for now. We just want to know which are `components`, `clientlibs` and `i18n`.
 
 - **components** Stores all the components you have created, and some that comes already made
 - **clientlibs** Stores all the css & js files associated to each component
+- **i18n** Stores the traductions of the text displayed at the website
+
+### content
+
+![structure_content](assets/structure_content.png)
+
+Inside this package are going to be stored our `content fragments`, `experience fragments` and `templates`.
+
+We will use this folder at [chapter 5](../5_component_fragments/Readme.md) (Component Fragments), so you can forget about it for now.
 
 ## Push a project to AEM server instance
 
