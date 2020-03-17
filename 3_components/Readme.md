@@ -20,7 +20,7 @@ As AEM is component oriented, understanding them is very important. We will see 
 
 ## Component Structure
 
-As we saw at [chapter 1](../1_maven_project/Readme.md), we can find our components under `ui.apps`.
+As we saw at [chapter 1](../1_maven_project/Readme.md#apps), we can find our components under `ui.apps`.
 
 We can see that there are a lot of them already in our folder. If we check the list, we can find a component called `helloworld`.
 
