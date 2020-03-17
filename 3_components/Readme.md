@@ -173,6 +173,8 @@ You can find a good documentation about these tags [here](https://github.com/ado
 
 ## My First Component
 
+**You can download the component we are going to do [here](assets/FunkoProduct.zip).**
+
 We are going to create a component that will store some information about a funko pop. If we check a [funko product](https://www.funko.com/products/animation/pop/pokemon/charmander-flocked), we can find some useful information so, let's model it for our component.
 
 First of all, create a folder named `funko` to store all our custom components there (this is just for organization, it is not necessary). Then copy the helloworld component inside this folder and rename it as `funkoProduct`.
