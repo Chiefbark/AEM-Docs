@@ -1,8 +1,10 @@
 # AEM Interface
 
-We will take a look to the AEM web to understand how it works.
+**Overview**
 
-Table of contents
+We will take a look to the AEM web and check where and how is the data stored, and some important directories that we will be using during this guide.
+
+**Table of contents**
 
 - [AEM Interface](#aem-interface)
   - [Start Page](#start-page)

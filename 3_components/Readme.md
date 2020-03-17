@@ -1,8 +1,10 @@
 # Components
 
-As AEM is component oriented, understanding them is very important.
+**Overview**
 
-Table of contents
+As AEM is component oriented, understanding them is very important. We will see how is the structure of a basic component (`helloworld`) and then we will create our own component.
+
+**Table of contents**
 
 - [Components](#components)
   - [Component Structure](#component-structure)

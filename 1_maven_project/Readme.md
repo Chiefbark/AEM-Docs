@@ -1,8 +1,10 @@
 # Maven Project
 
+**Overview**
+
 We will create a new maven project for AEM and explain the basic structure.
 
-Table of contents
+**Table of contents**
 
 - [Maven Project](#maven-project)
   - [Create a project](#create-a-project)
