@@ -13,8 +13,8 @@ Table of contents
   - [My First Component](#my-first-component)
     - [Dialog](#dialog)
     - [Controller](#controller)
-    - [Template HTML](#template-html)
-    - [CSS](#css)
+    - [HTML Template](#html-template)
+    - [CSS & JS](#css--js)
 
 ## Component Structure
 
@@ -39,7 +39,6 @@ In AEM web, if we edit the page `en` under `sites > audi > us`, we can see that 
 This dialog is the html representation of the `.xml` file.
 
 The content of the file is this:
-
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
@@ -67,7 +66,7 @@ The content of the file is this:
 ```
 
 - **jcr:primaryType** By default we will always use `nt:unstructured`
-- **sling:resourceType** This input type is defined at `granite/ui/components/coral/foundation/form/textfield`, this represents the data type of our input
+- **sling:resourceType** This input type is defined at `granite/ui/components/coral/foundation/form/textfield`, this represents the data type of our input, in this case, a text input
 - **fieldLabel** The label of the input on the dialog
 - **name** The name of the input we will refer to access it
 
@@ -89,7 +88,6 @@ This file is the most important of a component, it defines the following:
 - **componentGroup** The component group at which it belongs. Later on, we can use this field to create custom policies for our templates
 
 ### HelloWorldModel.java
-
 ```
 package com.audi.core.models;
 
@@ -175,95 +173,89 @@ You can find a good documentation about these tags [here](https://github.com/ado
 
 ## My First Component
 
-We are going to create a component that will store some information about an audi car. If we check the [audi web](https://www.audi.es/es/web/es/modelos.html?pid=int:home:menu:modelos), we can see a very obvious component:
+We are going to create a component that will store some information about a funko pop. If we check a [funko product](https://www.funko.com/products/animation/pop/pokemon/charmander-flocked), we can find some useful information so, let's model it for our component.
 
-![comp_car](assets/comp_car.png)
-
-Lets model it for our component.
-
-First of all, copy the helloworld and rename it as `audicar`.
+First of all, create a folder named `funko` to store all our custom components there (this is just for organization, it is not necessary). Then copy the helloworld component inside this folder and rename it as `funkoProduct`.
 
 Rename also the html file with the same name and empty it, since it is going to be different.
 
 &#9888; **WARNING**: the name of the component folder and the html file has to be the same. AEM is very strict with the names of the files.
 
-You also need to modify the `jcr:title`, for example to `Audi Car`, at the `.content.xml`.
+You also need to modify the `jcr:title`, for example to `Funko Product`, at the `.content.xml`.
 
 Once we have the structure created, lets just analize what do we need for our component.
-
-- **Name**
-- **Price**
-- **Serie** Will store the series of the car if present
-- **Image**
-- **Max & Min fuel**
-
-These fields seem enough for our first component, so let's get to work.
+- **Item Number** The item number of the funko
+- **Name** The name of the funko
+- **Release** The date when the funko was release
+- **Status** If the funko is available or not (we will calculate this value, so it won't be inside the dialog)
+- **Gallery** Group of images to display
 
 ### Dialog
 
-Inside the inner `items` tag of the `_cq_dialog/.content.xml`, copy this (after removing the text tag):
+First of all, we need to create or dialog, so open the `.content.xml` file inside the folder `_cq_dialog`.
 
+Inside of the inner item tag, paste this code:
 ```
+<item-no
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+        fieldLabel="Item number"
+        step="1"
+        required="true"
+        name="./item-no"/>
 <name
-    jcr:primaryType="nt:unstructured"
-    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-    fieldLabel="Name"
-    name="./name"/>
-<price
-    jcr:primaryType="nt:unstructured"
-    sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
-    fieldLabel="Price"
-    step="any"
-    min="0"
-    name="./price"/>
-<image
-    jcr:primaryType="nt:unstructured"
-    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-    rootPath="/content/dam/audi"
-    fieldLabel="Image"
-    name="./image"/>
-<serie
-    jcr:primaryType="nt:unstructured"
-    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-    fieldLabel="Serie"
-    name="./serie"/>
-<max-fuel
-    jcr:primaryType="nt:unstructured"
-    sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
-    fieldLabel="Maximum fuel per 100km"
-    step="0.1"
-    min="0"
-    name="./max-fuel"/>
-<min-fuel
-    jcr:primaryType="nt:unstructured"
-    sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
-    fieldLabel="Minimum fuel per 100km"
-    step="0.1"
-    min="0"
-    name="./min-fuel"/>
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+        fieldLabel="Name"
+        name="./name"/>
+<release
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
+        valueFormat="YYYY-MM-DD"
+        fieldLabel="Release date"
+        name="./release"/>
+<multi
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+        composite="{Boolean}true"
+        fieldLabel="Gallery">
+    <field
+            sling:resourceType="granite/ui/components/coral/foundation/container"
+            jcr:primaryType="nt:unstructured"
+            name="./gallery">
+        <items jcr:primaryType="nt:unstructured">
+            <image
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                rootPath="/content/dam/funko/products"
+                name="./image"/>
+        </items>
+    </field>
+</multi>
 ```
 
-Here we define each of the fields we want our dialog to have. Remember you can check the list of fields privided by adobe [here](https://helpx.adobe.com/experience-manager/6-4/sites/developing/using/reference-materials/granite-ui/api/jcr_root/libs/granite/ui/components/coral/foundation/server.html).
+Check the documentation of each field we have just used:
+- [NumberField](https://helpx.adobe.com/experience-manager/6-4/sites/developing/using/reference-materials/granite-ui/api/jcr_root/libs/granite/ui/components/coral/foundation/form/numberfield/index.html)
+- [TextField](https://helpx.adobe.com/experience-manager/6-4/sites/developing/using/reference-materials/granite-ui/api/jcr_root/libs/granite/ui/components/coral/foundation/form/textfield/index.html)
+- [DatePicker](https://helpx.adobe.com/experience-manager/6-4/sites/developing/using/reference-materials/granite-ui/api/jcr_root/libs/granite/ui/components/coral/foundation/form/datepicker/index.html)
+- [Checkbox](https://helpx.adobe.com/experience-manager/6-4/sites/developing/using/reference-materials/granite-ui/api/jcr_root/libs/granite/ui/components/coral/foundation/form/checkbox/index.html)
+- [MultiField](https://helpx.adobe.com/experience-manager/6-4/sites/developing/using/reference-materials/granite-ui/api/jcr_root/libs/granite/ui/components/coral/foundation/form/multifield/index.html)
+- [PathField](https://helpx.adobe.com/experience-manager/6-4/sites/developing/using/reference-materials/granite-ui/api/jcr_root/libs/granite/ui/components/coral/foundation/form/pathfield/index.html)
 
-If we push our project to the server, we can now add our component to the page.
 
-We won't be see anything, but if you open the `Content Tree` you can see your component there. If you select and cofigure it, you will see the dialog we just created.
+If we push our code to the server, we can create our new component and configure it.
 
-![comp_car_dialog](assets/comp_car_dialog.png)
+![comp_product_dialog](assets/comp_product_dialog.png)
 
-Of course, we won't be able to see any output, since the `.html` file is empty.
+The multifield allows us to create multiple instances of the field or fields that are inside the `items` tag. You can nest multifields inside multifields.
 
-But first, let's create our controller.
+Of course, we won't be able to see any output, since the `.html` file is empty. But first, let's create our controller.
 
 ### Controller
 
-Go to `core > models`, create a class `AudiCarModel` and copy paste this code:
+Go to `core > models`, create a class `FunkoProductModel` and copy paste this code:
 ```
-package com.audi.core.models;
-
-import static org.apache.sling.api.resource.ResourceResolver.PROPERTY_RESOURCE_TYPE;
-
-import javax.annotation.PostConstruct;
+package com.funko.core.models;
 
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.Default;
@@ -272,8 +264,12 @@ import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
+import javax.annotation.PostConstruct;
+
+import static org.apache.sling.api.resource.ResourceResolver.PROPERTY_RESOURCE_TYPE;
+
 @Model(adaptables = Resource.class)
-public class AudiCarModel {
+public class FunkoProductModel {
 
     @ValueMapValue(name = PROPERTY_RESOURCE_TYPE, injectionStrategy = InjectionStrategy.OPTIONAL)
     @Default(values = "No resourceType")
@@ -284,132 +280,154 @@ public class AudiCarModel {
 
     @PostConstruct
     protected void init() {
-
     }
 }
+
 ```
 
 This is the basic component controller class. Now we need to create one field per each field of the dialog, with its respective getter.
-
 ```
-    private String name;
-    private String price;
-    private String image;
-    private String serie;
-    private String max_fuel;
-    private String min_fuel;
+private String item_no;
+private String name;
+private String release;
+private String status;
+private ArrayList<String> gallery;
 
-    public String getName() {
-        return name;
-    }
+public String getItem_no() {
+    return item_no;
+}
 
-    public String getPrice() {
-        return price;
-    }
+public String getName() {
+    return name;
+}
 
-    public String getImage() {
-        return image;
-    }
+public String getRelease() {
+    return release;
+}
 
-    public String getSerie() {
-        return serie;
-    }
+public String getStatus() {
+    return status;
+}
 
-    public String getMax_fuel() {
-        return max_fuel;
-    }
-
-    public String getMin_fuel() {
-        return min_fuel;
-    }
+public ArrayList<String> getGallery() {
+    return gallery;
+}
 ```
 
 Now we need to link this fields with the current values of the dialog.
 
 To do this, copy this code inside the `init()` method:
-
 ```
-    this.name = currentResource.getValueMap().get("name", String.class);
-    this.price = currentResource.getValueMap().get("price", String.class);
-    this.image = currentResource.getValueMap().get("image", String.class);
-    this.serie = currentResource.getValueMap().get("serie", String.class);
-    this.max_fuel = currentResource.getValueMap().get("max-fuel", String.class);
-    this.min_fuel = currentResource.getValueMap().get("min-fuel", String.class);
+this.gallery = new ArrayList<>();
+        
+this.item_no = currentResource.getValueMap().get("item-no", String.class);
+this.name = currentResource.getValueMap().get("name", String.class);
+this.release = currentResource.getValueMap().get("release", String.class);
+
+if (this.release != null)
+    try {
+        SimpleDateFormat sdformat = new SimpleDateFormat("yyyy-MM-dd");
+        Date d1 = sdformat.parse(this.release);
+        Date d2 = new Date();
+        if (d1.compareTo(d2) > 0)
+            this.status = "Coming soon";
+        else
+            this.status = "Available";
+    } catch (Exception e) {
+        this.status = "Unavailable";
+        e.printStackTrace();
+    }
+Resource multi = currentResource.getChild("gallery");
+if (multi != null) {
+    Iterator<Resource> children = multi.listChildren();
+    while (children.hasNext()) {
+        String image = children.next().getValueMap().get("image", String.class);
+        this.gallery.add(image);
+    }
+}
 ```
 
 What we are doing here is:
 
-- Getting the current resource (`currentResource`) which is our dialog
-- Get the value map of the dialog (mostly everything in AEM works as a map)
-- Select the value we want, casting it to a String
+1. Getting the current resource (`currentResource`) which is our dialog
 
-&#9888; **IMPORTANT**: The first param of `getValue()` has to be the same value as the name we used at our `_cq_dialog/.content.xml` file at the current field
+2. Get the value map of the dialog (mostly everything in AEM works as a map)
+
+3. Select the value we want, casting it to a String
+
+4. Calculates the status, dependeing on the release date
+
+5. Select the multifield and iterate over each element
+
+6. Store each element into the gallery
+
+&#9888; **IMPORTANT**: The first param of `getValue()` has to be the same value as the name we used at our `_cq_dialog/.content.xml` file at the current field.
 
 Once we have our controller, we can create our template html.
 
-### Template HTML
+### HTML Template
 
-Inside our `audicar.html` we need to copy this line at the beggining:
+Inside our `funkoProduct.html` we need to copy this line at the beggining:
 ```
-<sly data-sly-use.audiCar="com.audi.core.models.AudiCarModel"/>
+<sly data-sly-use.funkoProduct="com.audi.core.models.FunkoProductModel"/>
 ```
 With this line of code, we refer our model and can access every get we have.
 
-Now we can create a layout similar to the given in audi page.
+Now we can create a layout similar to the given in funko's page.
 ```
-<sly data-sly-use.audiCar="com.audi.core.models.AudiCarModel"/>
-<!--/* If the audicar name & image is set */-->
-<sly data-sly-test="${audiCar && audiCar.name && audiCar.image}">
-    <div class="audi-car">
-        <div class="audi-car-header">
-            <h2>
-                <!--/* If the serie of the car is set */-->
-                <sly data-sly-test="${audiCar.serie}">
-                    <span>${audiCar.serie}</span>
+<sly data-sly-use.funkoProduct="com.funko.core.models.FunkoProductModel"/>
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-call="${clientlib.css @ categories='funko.product'}"/>
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-call="${clientlib.js @ categories='funko.product'}"/>
+
+<sly data-sly-test="${funkoProduct.gallery.size > 0 && funkoProduct.item_no && funkoProduct.name}">
+    <div class="funko-product">
+        <div class="funko-product-gallery">
+            <div class="gallery-items">
+                <sly data-sly-list="${funkoProduct.gallery}">
+                    <div class="${itemList.first ? 'current': ''}" onclick="onItemGalleryClicked(this);">
+                        <img src="${item}" alt="${funkoProduct.name}">
+                    </div>
                 </sly>
-                <span>${audiCar.name}</span>
-            </h2>
-            <!--/* If the price of the car is set */-->
-            <sly data-sly-test="${audiCar.price}">
-                <!--/* Formats the car price */-->
-                <small>From ${'#,###.00' @ format=audiCar.price} EUR</small>
-            </sly>
-        </div>
-        <div class="audi-car-body">
-            <img src="${audiCar.image}" alt="${audiCar.name}">
-        </div>
-        <!--/* If the max or min fuel of the car is set */-->
-        <sly data-sly-test="${audiCar.max_fuel || audiCar.min_fuel}">
-            <div class="audi-car-footer">
-                <small>Fuel consume: ${'#.0' @ format=audiCar.max_fuel}-${'#.0' @ format=audiCar.min_fuel}/100km</small>
             </div>
-        </sly>
+            <div class="gallery-current">
+                <img src="${funkoProduct.gallery[0]}" alt="${funkoProduct.name}">
+            </div>
+        </div>
+        <div class="funko-product-info">
+            <h1>${funkoProduct.name}</h1>
+            <p><strong>Release date: </strong>${funkoProduct.releaseYear || 'undefined'}</p>
+            <p><strong>Status: </strong>${funkoProduct.status}</p>
+            <p><strong>Item number: </strong>${funkoProduct.item_no}</p>
+        </div>
     </div>
 </sly>
 ```
 
 As you can see, we are using the `sly tags`. You can find more information about them [here](https://github.com/adobe/htl-spec/blob/master/SPECIFICATION.md).
 
-We are limitating the html render if there is no content available to show, and forcing at least the name and the image to create some content.
+We are limitating the html render if there is no gallery available to show, and forcing at least the name, one image and the item number to create the content.
 
-If we push again our project to the server and fill all the data of the dialog (remember you can upload files from the `assets` menu of AEM), we can see our basic layout:
+I also added css class, js functions and two sly tags at the header
+```
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-call="${clientlib.css @ categories='funko.product'}"/>
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-call="${clientlib.js @ categories='funko.product'}"/>
+```
+These tags links the css and the js files that we will create now.
 
-![comp_car_output_1](assets/comp_car_output_1.png)
+### CSS & JS
 
-It works. But this is pretty ugly. Lets add some css.
+Inside the `clientlibs` package, create a folder named `clientlib-funkoProduct`.
 
-### CSS
-
-Inside the `clientlibs` package, create a folder named `clientlib-audicar`.
-
-&#9888; **IMPORTANT**: The name has to be exactly like that one.
-
-1. Create a `.content.xml` file woth the following data:
+1. Create a `.content.xml` file with the following data:
     ```
     <?xml version="1.0" encoding="UTF-8"?>
     <jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
             jcr:primaryType="cq:ClientLibraryFolder"
-            categories="[audi.car]" />
+            categories="[funko.product]" />
     ```
 - **jcr:primaryType** specifies that the package is a client lib folder
 - **categories** reference to access this package. It can have more than one value
@@ -418,46 +436,102 @@ Inside the `clientlibs` package, create a folder named `clientlib-audicar`.
 
     This file will be the css that we want to apply to our component. The file can be also a `.css` file.
     The content of this file
+
     ```
-    .audi-car {
-        width           : 20%;
-        background-color: white;
-        font-family     : 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        border          : 1px solid whitesmoke;
+    .funko-product {
+        display       : flex;
+        flex-direction: row;
+        flex-wrap     : nowrap;
+        align-items   : flex-start;
+        font-family   : Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        padding       : 20px 50px;
+
+        @media screen and (max-width: 768px) {
+            flex-direction: column;
+            padding       : 20px 0;
+        }
     }
 
-    .audi-car-header {
-        padding: 10px;
+    .funko-product-gallery {
+        display       : flex;
+        flex-direction: row;
+        flex-wrap     : nowrap;
+        width         : 65%;
+        overflow      : hidden;
+        margin-right  : 50px;
 
-        h2 {
-            margin: 0;
+        @media screen and (max-width: 768px) {
+            flex-direction: column;
+            width         : 100%;
+            margin        : 0;
         }
 
-        span {
-            font-weight: bold;
-            font-size  : 20pt;
+        .gallery-items {
+            display        : flex;
+            flex-direction : column;
+            justify-content: center;
+            align-items    : center;
+            width          : 20%;
+            margin-left    : 50px;
 
-            &:nth-last-of-type(1) {
-                font-size: inherit;
+            @media screen and (max-width: 768px) {
+                flex-direction: row;
+                width         : 100%;
+                margin        : 0;
+            }
+
+            >div {
+                width     : calc(100% - 4px);
+                border    : 2px solid white;
+                text-align: center;
+                padding   : 10px 0;
+                margin    : 5px;
+
+                @media screen and (max-width: 768px) {
+                    width: 20%;
+                }
+
+                &.current {
+                    border-color: whitesmoke;
+                }
+
+                >img {
+                    width : 70%;
+                    height: auto;
+                }
+            }
+        }
+
+        .gallery-current {
+            width     : 80%;
+            text-align: center;
+
+            @media screen and (max-width: 768px) {
+                width : 100%;
+                margin: 0;
+            }
+
+            >img {
+                width : 70%;
+                height: auto;
             }
         }
     }
 
-    .audi-car-body {
-        padding: 10px;
+    .funko-product-info {
+        width: 35%;
 
-        img {
-            width : 100%;
-            height: auto;
+        @media screen and (max-width: 768px) {
+            width  : 80%;
+            padding: 0 10%;
+        }
+
+        >p {
+            margin-left: 20px;
         }
     }
-
-    .audi-car-footer {
-        padding         : 10px;
-        background-color: whitesmoke;
-    }
     ```
-
+    
 3. Create a `css.txt` file and add the following lines:
     ```
     #base=css
@@ -466,20 +540,33 @@ Inside the `clientlibs` package, create a folder named `clientlib-audicar`.
 
     Here we indicate that the css file is stored under `css` folder.
 
-4. Before pushing your project, open the `html` template of the component and add:
+4. Create a folder named `js` and create a file names `script.js`.
     ```
-    <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
-     data-sly-call="${clientlib.css @ categories='audi.car'}"/>
+    function onItemGalleryClicked(elem) {
+        Array.from(elem.parentNode.children).forEach(function(item) {
+            item.classList.remove("current");
+        });
+        elem.classList.add("current");
+        elem.parentNode.nextElementSibling.children[0].src = elem.children[0].src;
+    }
     ```
 
-    This way, we link the `css styles`. Notice that the categories is the same as the clientlib `.content.xml`.
+5. Create a `js.txt` file and add the following lines:
+    ```
+    #base=js
+    script.js
+    ```
+
+    Here we indicate that the javascript file is stored under `js` folder.
+
 
 The output once we refresh the website should be like this:
 
-![comp_car_output_2](assets/comp_car_output_2.png)
+![comp_product_output_1](assets/comp_product_output_1.png)
 
+![comp_product_output_2](assets/comp_product_output_2.png)
 
-In the [next chapter](../4_page_properties/Readme.md) (Page Properties) we will use the page properties and customize them.
+Try creating other `Funko Products` and see what happens when you input different data.
 
 ---
 
@@ -492,3 +579,6 @@ In the [next chapter](../4_page_properties/Readme.md) (Page Properties) we will 
 - [Experience Fragments](../6_experience_fragments/Readme.md)
 - [Templates](../7_templates/Readme.md)
 - [Query Builder](../8_query_builder/Readme.md)
+
+
+In the [next chapter](../4_page_properties/Readme.md) (Page Properties) we will use the page properties and customize them.
