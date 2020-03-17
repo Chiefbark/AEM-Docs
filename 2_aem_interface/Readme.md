@@ -85,6 +85,8 @@ We can see the content fragments of all our projects, edit and create them. Anyw
 
 ---
 
+In the [next chapter](../3_components/Readme.md) (Components) we will create our first component and use it in a simple page.
+
 **Guide contents**
 - [Maven Project](../1_maven_project/Readme.md)
 - [AEM Interface](../2_aem_interface/Readme.md)
@@ -94,6 +96,3 @@ We can see the content fragments of all our projects, edit and create them. Anyw
 - [Experience Fragments](../6_experience_fragments/Readme.md)
 - [Templates](../7_templates/Readme.md)
 - [Query Builder](../8_query_builder/Readme.md)
-
-
-In the [next chapter](../3_components/Readme.md) (Components) we will create our first component and use it in a simple page.

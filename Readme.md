@@ -34,4 +34,6 @@ Extract the zip under the path `C:\` and browse to `maven\apache-maven-X.X.X\`. 
 
 The IDE we are going to use is IntelliJ IDEA. Download the Community Edition from the [official page](https://www.jetbrains.com/es-es/idea/). If you have a license with Jetbrains you can download the Ultimate version, but it is not necessary.
 
+---
+
 To begin this guide, go to the [next chapter](1_maven_project/Readme.md) where we will create a project using maven and push it to ur server instance.

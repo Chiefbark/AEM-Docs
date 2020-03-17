@@ -570,6 +570,8 @@ Try creating other `Funko Products` and see what happens when you input differen
 
 ---
 
+In the [next chapter](../4_page_properties/Readme.md) (Page Properties) we will use the page properties and customize them.
+
 **Guide contents**
 - [Maven Project](../1_maven_project/Readme.md)
 - [AEM Interface](../2_aem_interface/Readme.md)
@@ -579,6 +581,3 @@ Try creating other `Funko Products` and see what happens when you input differen
 - [Experience Fragments](../6_experience_fragments/Readme.md)
 - [Templates](../7_templates/Readme.md)
 - [Query Builder](../8_query_builder/Readme.md)
-
-
-In the [next chapter](../4_page_properties/Readme.md) (Page Properties) we will use the page properties and customize them.
