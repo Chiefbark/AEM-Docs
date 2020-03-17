@@ -24,7 +24,7 @@ This command will download the necessary files and will promt you to enter some 
 - **artifactId**: Base Maven ArtifactId: `funko`
 - **appTitle**: Will be used for website title and components groups: `Funko`
 
-We will be working on a [Funko shop](https://shop.funko.com/). All the assets we will be using are from there.
+We will be working on a [Funko shop](https://funko.com/). All the assets we will be using are from there.
 
 Once you have enter all those fields, validate the command pressing `y`.
 
@@ -77,9 +77,6 @@ mvn clean install -PautoInstallPackage -PautoInstallBundle -Padobe-public
 
 Once the command ends, your project will be published and you can manage it from the web.
 
-
-In the [next chapter](../2_aem_interface/Readme.md) (AEM Interface) we will see how does AEM work and will move over the web.
-
 ---
 
 **Guide contents**
@@ -91,3 +88,6 @@ In the [next chapter](../2_aem_interface/Readme.md) (AEM Interface) we will see 
 - [Experience Fragments](../6_experience_fragments/Readme.md)
 - [Templates](../7_templates/Readme.md)
 - [Query Builder](../8_query_builder/Readme.md)
+
+
+In the [next chapter](../2_aem_interface/Readme.md) (AEM Interface) we will see how does AEM work and will move over the web.
