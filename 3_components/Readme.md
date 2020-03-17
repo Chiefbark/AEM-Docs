@@ -32,7 +32,7 @@ Most of the times, copying this folder and customizing it is the best for creati
 
 ### _cq_dialog/.content.xml
 
-In AEM web, if we edit the page `en` under `sites > audi > us`, we can see that a component `helloworld` is instantiated if we click and cofigure it, we can see a dialog asking for a title:
+In AEM web, if we edit the page `en` under `sites > funko > us`, we can see that a component `helloworld` is instantiated if we click and cofigure it, we can see a dialog asking for a title:
 
 ![comp_dialog](assets/comp_dialog.png)
 
@@ -78,7 +78,7 @@ You can find more documentation about all the inputs available and its propertie
 <jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="cq:Component"
     jcr:title="Hello World Component"
-    componentGroup="Audi - Content"/>
+    componentGroup="Funko - Content"/>
 ```
 
 This file is the most important of a component, it defines the following:
@@ -89,7 +89,7 @@ This file is the most important of a component, it defines the following:
 
 ### HelloWorldModel.java
 ```
-package com.audi.core.models;
+package com.funko.core.models;
 
 import static org.apache.sling.api.resource.ResourceResolver.PROPERTY_RESOURCE_TYPE;
 
@@ -160,7 +160,7 @@ In the [helloworld.html](#helloworldhtml) file it access the input `text` with `
         <p class="cmp-helloworld__item-label">Text property:</p>
         <pre class="cmp-helloworld__item-output" data-cmp-hook-helloworld="property">${properties.text}</pre>
     </div>
-    <div class="cmp-helloworld__item" data-sly-use.model="com.audi.core.models.HelloWorldModel" data-sly-test="${model.message}">
+    <div class="cmp-helloworld__item" data-sly-use.model="com.funko.core.models.HelloWorldModel" data-sly-test="${model.message}">
         <p class="cmp-helloworld__item-label">Model message:</p>
         <pre class="cmp-helloworld__item-output"data-cmp-hook-helloworld="model">${model.message}</pre>
     </div>
@@ -369,7 +369,7 @@ Once we have our controller, we can create our template html.
 
 Inside our `funkoProduct.html` we need to copy this line at the beggining:
 ```
-<sly data-sly-use.funkoProduct="com.audi.core.models.FunkoProductModel"/>
+<sly data-sly-use.funkoProduct="com.funko.core.models.FunkoProductModel"/>
 ```
 With this line of code, we refer our model and can access every get we have.
 
