@@ -150,8 +150,6 @@ This file is the controller of the `helloworld component`.
 
 This file will handle the save of our dialog on the database.
 
-In the [helloworld.html](#helloworldhtml) file it access the input `text` with `properties.text`, but later on, in [my first component](#my-first-component) section, we will access it in another way from our controller.
-
 ### helloworld.html
 ```
 <div class="cmp-helloworld" data-cmp-is="helloworld">
@@ -166,8 +164,9 @@ In the [helloworld.html](#helloworldhtml) file it access the input `text` with `
     </div>
 </div>
 ```
-
 Just a basic html structure with css classes and some `sly tags`. These sly tags are used to access the controller of our component and add some logic to our html, it is similar to jsp files.
+
+Here, the component access the input `text` with `properties.text`, but later on, in [my first component](#my-first-component) section, we will access it in another way from our controller.
 
 You can find a good documentation about these tags [here](https://github.com/adobe/htl-spec/blob/master/SPECIFICATION.md).
 
