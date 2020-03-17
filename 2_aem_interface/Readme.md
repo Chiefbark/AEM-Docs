@@ -83,9 +83,6 @@ If we go to `Assets` (side panel of the Tools) and click on the `Content Fragmen
 
 We can see the content fragments of all our projects, edit and create them. Anyway, as same as templates, we will create them coding.
 
-
-In the [next chapter](../3_components/Readme.md) (Components) we will create our first component and use it in a simple page.
-
 ---
 
 **Guide contents**
@@ -97,3 +94,6 @@ In the [next chapter](../3_components/Readme.md) (Components) we will create our
 - [Experience Fragments](../6_experience_fragments/Readme.md)
 - [Templates](../7_templates/Readme.md)
 - [Query Builder](../8_query_builder/Readme.md)
+
+
+In the [next chapter](../3_components/Readme.md) (Components) we will create our first component and use it in a simple page.
