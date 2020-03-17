@@ -1,6 +1,6 @@
 # AEM Interface
 
-We will have a preview of the AEM web to understand how it works.
+We will take a look to the AEM web to understand how it works.
 
 Table of contents
 
