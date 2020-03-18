@@ -78,7 +78,7 @@ Here there are many folders which are not interesting for now. We just want to k
 
 Inside this package are going to be stored our `content fragments`, `experience fragments` and `templates`.
 
-We will use this folder at [chapter 5](../5_component_fragments/Readme.md) (Component Fragments), so you can forget about it for now.
+We will use this folder at [chapter 5](../5_content_fragments/Readme.md) (Content Fragments), so you can forget about it for now.
 
 ## Push a project to AEM server instance
 
@@ -100,7 +100,7 @@ In the [next chapter](../2_aem_interface/Readme.md) (AEM Interface) we will see 
 - [AEM Interface](../2_aem_interface/Readme.md)
 - [Components](../3_components/Readme.md)
 - [Page Properties](../4_page_properties/Readme.md)
-- [Component Fragments](../5_component_fragments/Readme.md)
+- [Content Fragments](5_content_fragments/Readme.md)
 - [Experience Fragments](../6_experience_fragments/Readme.md)
 - [Templates](../7_templates/Readme.md)
 - [Query Builder](../8_query_builder/Readme.md)
