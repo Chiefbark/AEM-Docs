@@ -202,7 +202,6 @@ Inside of the inner item tag, paste this code:
         sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
         fieldLabel="Item number"
         step="1"
-        required="true"
         name="./item-no"/>
 <name
         jcr:primaryType="nt:unstructured"
