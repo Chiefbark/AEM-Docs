@@ -38,6 +38,7 @@ Once you have enter all those fields, validate the command pressing `y`.
 Open IntelliJ and click on `import project...`. Browse to the path where you created the project and select it.
 
 Once you have imported the project, you will see a folder structure like this:
+
 ![structure_project](assets/structure_project.png)
 
 
