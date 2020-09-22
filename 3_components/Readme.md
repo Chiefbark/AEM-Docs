@@ -304,6 +304,10 @@ public String getRelease() {
     return release;
 }
 
+public String getReleaseYear() {
+    return release.split("-")[0];
+}
+
 public String getStatus() {
     return status;
 }
