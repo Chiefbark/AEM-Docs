@@ -183,7 +183,7 @@ But the other one remains as the same, because the the value introduced at the d
 
 ---
 
-In the [next chapter](../5_content_fragments/Readme.md) (Content Fragments) we will create and use the `Content Fragments` of AEM.
+In the [next chapter](../5_content_fragments/Readme.md) (Content Fragments) we will create and use the `Content Fragments` of AEM to provide another data source for our component.
 
 **Guide contents**
 - [Maven Project](../1_maven_project/Readme.md)
