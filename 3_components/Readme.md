@@ -8,7 +8,7 @@ As AEM is component oriented, understanding them is very important. We will see 
 
 - [Components](#components)
   - [Component Structure](#component-structure)
-    - [_cq_dialog/.content.xml](#cqdialogcontentxml)
+    - [_cq_dialog/.content.xml](#_cq_dialogcontentxml)
     - [.content.xml](#contentxml)
     - [HelloWorldModel.java](#helloworldmodeljava)
     - [helloworld.html](#helloworldhtml)
@@ -241,6 +241,7 @@ Check the documentation of each field we have just used:
 - [MultiField](https://helpx.adobe.com/experience-manager/6-4/sites/developing/using/reference-materials/granite-ui/api/jcr_root/libs/granite/ui/components/coral/foundation/form/multifield/index.html)
 - [PathField](https://helpx.adobe.com/experience-manager/6-4/sites/developing/using/reference-materials/granite-ui/api/jcr_root/libs/granite/ui/components/coral/foundation/form/pathfield/index.html)
 
+&#9432; You can check [this link](https://gist.github.com/kevinweber/05c4c8cf005a6e640f7c8ad65ef5113c) to see some xml implementations of the components.
 
 If we push our code to the server, we can create our new component and configure it.
 
