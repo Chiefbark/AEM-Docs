@@ -8,11 +8,13 @@ We will create a new maven project for AEM and explain the basic structure.
 
 - [Maven Project](#maven-project)
   - [Create a project](#create-a-project)
-  - [Import a project](#import-a-project)
+  - [Import project in IntelliJ IDEA](#import-project-in-intellij-idea)
   - [Project structure](#project-structure)
     - [core](#core)
     - [apps](#apps)
     - [content](#content)
+  - [Run project](#run-project)
+    - [Create a debug configuration in IntelliJ IDEA](#create-a-debug-configuration-in-intellij-idea)
   - [Push a project to AEM server instance](#push-a-project-to-aem-server-instance)
 
 ## Create a project
@@ -33,7 +35,7 @@ We will be working on a [Funko shop](https://funko.com/). All the assets we will
 
 Once you have enter all those fields, validate the command pressing `y`.
 
-## Import a project
+## Import project in IntelliJ IDEA
 
 Open IntelliJ and click on `import project...`. Browse to the path where you created the project and select it.
 
@@ -80,6 +82,28 @@ Here there are many folders which are not interesting for now. We just want to k
 Inside this package are going to be stored our `content fragments`, `experience fragments` and `templates`.
 
 We will use this folder at [chapter 5](../5_content_fragments/Readme.md) (Content Fragments), so you can forget about it for now.
+
+## Run project
+
+In order to start the AEM server instance, you can have two options:
+
+- Double click the `.jar` file of the server
+- Run the `.jar` file in debugger mode
+
+For the debug option, you need to execute the instance with the following command in the terminal:
+```
+java -jar  cq-author-p4502.jar -r local -fork -forkargs -- -Xdebug -Xrunjdwp:transport=dt_socket,address=30303,suspend=n,server=y -Dfile.encoding=UTF8 -Xmx4096m -XX:MaxPermSize=256m -XX:-UseSplitVerifier
+```
+
+### Create a debug configuration in IntelliJ IDEA
+
+Creating a debug configuration in IntelliJ IDEA is very simple. You go to `Add Configuration...` in the upper right corner, and click the `+` icon.
+<br>
+Select the `Remote` template and replace the field `port` with `30303` (same as in the line code above)
+
+![configuration_debug](assets/configuration_debug.png)
+
+And you are done! Next you just need to add a breakpoint in your `java class`, execute this configuration, and refresh the page where the component is rendering.
 
 ## Push a project to AEM server instance
 
