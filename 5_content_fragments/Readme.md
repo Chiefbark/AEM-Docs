@@ -119,8 +119,7 @@ This is the content of that `.content.xml`
                                 showEmptyInReadOnly="true"
                                 valueType="string[]"
                                 rootPath="/content/dam/funko/products"
-                                fieldLabel="Gallery"
-                                name="image">
+                                fieldLabel="Gallery">
                             <field
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="dam/cfm/models/editor/components/contentreference"
@@ -201,7 +200,7 @@ In order to get the values from the `Content Fragment`, we can read the data usi
 ```
 contentFragment.getElement("item-no").getValue().getValue(String.class)
 
-contentFragment.getElement("gallery").getValue().getValue(String[].class)
+contentFragment.getElement("image").getValue().getValue(String[].class)
 ```
 
 Now it is up to you to implement it in the code following the priority we set before:
