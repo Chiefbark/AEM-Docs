@@ -31,6 +31,8 @@ This command will download the necessary files and will promt you to enter some 
 - **artifactId**: Base Maven ArtifactId: `funko`
 - **appTitle**: Will be used for website title and components groups: `Funko`
 
+&#9432; Further information can be found [here](https://github.com/adobe/aem-project-archetype#available-properties).
+
 We will be working on a [Funko shop](https://funko.com/). All the assets we will be using are from there.
 
 Once you have enter all those fields, validate the command pressing `y`.
