@@ -208,6 +208,8 @@ Now it is up to you to implement it in the code following the priority we set be
 
 `Component dialog > Page properties > Content fragment`
 
+&#9888; Notice that the `page properties` for the value `default image` is only used if no gallery is provided
+
 **You can download the code of this chapter [here](assets/FunkoChapter5.zip).**
 
 In the [next chapter](../6_experience_fragments/Readme.md) (Experience Fragments) we will create and use the `Experience Fragments` of AEM to create a nav and footer.
