@@ -11,12 +11,17 @@ We will see how to read data from it with our component and customize it with ne
   - [Default Properties](#default-properties)
   - [Get Properties](#get-properties)
   - [Custom Properties](#custom-properties)
+  - [Tips](#tips)
+    - [Default Page Properties](#default-page-properties)
+    - [Create a new Page](#create-a-new-page)
+    - [Examples](#examples)
+  - [Download](#download)
 
 ## Default Properties
 
 ![prop_default](assets/prop_default.png)
 
-If we open the page properties of the webpage `en`, we can see a list of tabs, a multiple inputs to set information.
+If we open the Page Properties of the webpage `en`, we can see a list of tabs, a multiple inputs to set information.
 
 You can access all of it from any of your components.
 
@@ -123,7 +128,7 @@ Copy this code inside
 </jcr:root>
 ```
 
-This is the basic structure we need to customize the page properties.
+This is the basic structure we need to customize the Page Properties.
 
 Inside the `items` tag, we can override the existing tabs or create new ones.
 
@@ -166,17 +171,64 @@ And adding this one, we create a custom tab named `Product`, with a property `Pr
 
 ![prop_custom](assets/prop_custom.png)
 
-Now we can see our new tab inside the `Page Properties`.
+Now we can see our new tab inside the Page Properties.
 
 Update your `FunkoProductModel` to set as default the name and the gallery if no data provided by the dialog.
 
-If you add a new funko product with just the `item number` property and set the `page properties`, you will se that the product loads with the data.
+If you add a new funko product with just the `item number` property and set the Page Properties, you will se that the product loads with the data.
 
 ![prop_custom_filled](assets/prop_custom_filled.png)
 
 ![comp_product_props](assets/comp_product_props.png)
 
 But the other one remains as the same, because the the value introduced at the dialog has preference.
+
+## Tips
+
+### Default Page Properties
+
+If you override an already defined tab of the Page Properties, all the fields not defined will be deleted.
+<br>
+In order to avoid this behaviour, you can check in the CRXDE which are the values setted by default under the path
+`/libs/wcm/foundation/components/page`.
+
+To download all the foundation components (just in case you need to override some of them), you can easly do it by creating a new package from the **Package Manager**
+
+![foundation_components_package](assets/foundation_components_package.png)
+
+Provide a name and a version and create the package.
+
+Now you will see it at the top of list. Click in edit and open the tab `Filters`
+
+![foundation_components_edit](assets/foundation_components_edit.png)
+
+With the filters you can specify which paths that package is going to contain.
+<br>
+In this case we just to select the `foundation components` so we just type the path in there.
+
+Once you are done, click on `Save`, then `Build`, and now you are ready to download it.
+
+So if you want to customize one of this components, you can create a new component and copy the files of the desired component inside.
+
+Now you can check all the tabs and fields added by default inside the `basicpage/v1/basicpage/tabs`.
+
+### Create a new Page
+
+In this chapter, we overrided the page component provided by AEM, but this is not the best practice.
+
+You can create a component which extends the core page and modify it.
+
+**Why do it this way?**
+
+Well, in the [chapter 7 (templates)](../7_templates/Readme.md) we will see that we can provide a page type to our template.
+<br>
+This way, you can have custom Page Properties only for a specific type of template.  
+
+### Examples
+
+You can find some Page Properties examples [here](../examples/Readme.md) with the `.content.xml` and the `.java` controller to get the info.
+
+## Download
 
 **You can download the code of this chapter [here](assets/FunkoChapter4.zip).**
 
