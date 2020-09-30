@@ -19,6 +19,8 @@ As AEM is component oriented, understanding them is very important. We will see 
     - [CSS & JS](#css--js)
   - [Tips](#tips)
     - [Grouping Components](#grouping-components)
+    - [Core Components](#core-components)
+    - [Foundation Components](#foundation-components)
     - [Examples](#examples)
   - [Download](#download)
 
@@ -597,6 +599,36 @@ You need to add a `.content.xml` to the folder created with the content:
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
           jcr:primaryType="nt:folder"/>
 ```
+
+### Core Components
+
+If you take a look to any of the components that maven generated for you, you can see that most of the only have a `.content.xml` file inside.
+
+If you check that file, you can see an attribute named `sling:resourceSuperType` pointing to a path inside the core.
+
+If you want to extends the functionality of any of these components, you can download the source code from the [Adobe Oficial Github](https://github.com/adobe/aem-core-wcm-components/tree/master/content/src/content/jcr_root/apps/core/wcm/components).
+
+### Foundation Components
+
+Foundation components are the very top of all the heritance of the adobe components. You can see core components extending from a foundation component, like the component `page`, which we manipulate in the [next chapter (Page Properties)](../4_page_properties/Readme.md).
+
+To download all the foundation components (just in case you need to override some of them), you can easily do it by creating a new package from the **Package Manager**
+
+![foundation_components_package](assets/foundation_components_package.png)
+
+Provide a name and a version and create the package.
+
+Now you will see it at the top of list. Click in edit and open the tab `Filters`
+
+![foundation_components_edit](assets/foundation_components_edit.png)
+
+With the filters you can specify which paths that package is going to contain.
+<br>
+In this case we just to select the `foundation components` so we just type the path in there.
+
+Once you are done, click on `Save`, then `Build`, and now you are ready to download it.
+
+So if you want to customize one of this components, you can create a new component and copy the files of the desired component inside.
 
 ### Examples
 
