@@ -11,11 +11,22 @@
 - [Query Builder](8_query_builder/Readme.md)
 
 ---
+<br>
+DISCLAIMER
+---
+
+This guide does not pretend to be a full completed documentation about how to work with Adobe Experience Manager, but a guide to get started.
+
+Once said that, lets continue.
+<br>
+<br>
+<br>
 
 For this guide you need to install some software: JDK 8, Apache Maven and IntelliJ IDEA.
 
 Table of contents
 - [Adobe Experience Manager](#adobe-experience-manager)
+  - [DISCLAIMER](#disclaimer)
   - [JDK 8](#jdk-8)
   - [Apache Maven](#apache-maven)
   - [IntelliJ IDEA](#intellij-idea)
