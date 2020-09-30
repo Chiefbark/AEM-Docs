@@ -17,6 +17,10 @@ As AEM is component oriented, understanding them is very important. We will see 
     - [Controller](#controller)
     - [HTML Template](#html-template)
     - [CSS & JS](#css--js)
+  - [Tips](#tips)
+    - [Grouping Components](#grouping-components)
+    - [Examples](#examples)
+  - [Download](#download)
 
 ## Component Structure
 
@@ -571,6 +575,34 @@ The output once we refresh the website should be like this:
 ![comp_product_output_2](assets/comp_product_output_2.png)
 
 Try creating other `Funko Products` and see what happens when you input different data.
+
+## Tips
+
+### Grouping Components
+
+If you want to group several components in a package, like:
+```
+components/
+├── .../
+├── custom/
+│   ├── component-name
+│   ├── component-name
+│── .../
+```
+
+You need to add a `.content.xml` to the folder created with the content:
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          jcr:primaryType="nt:folder"/>
+```
+
+### Examples
+
+You can find some component examples [here](../examples/Readme.md) with the `cq_dialog` xml and the `.java` controller.
+
+## Download
 
 **You can download this component [here](assets/FunkoChapter3.zip).**
 
