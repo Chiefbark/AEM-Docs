@@ -188,29 +188,12 @@ But the other one remains as the same, because the the value introduced at the d
 ### Default Page Properties
 
 If you override an already defined tab of the Page Properties, all the fields not defined will be deleted.
-<br>
-In order to avoid this behaviour, you can check in the CRXDE which are the values setted by default under the path
-`/libs/wcm/foundation/components/page`.
 
-To download all the foundation components (just in case you need to override some of them), you can easly do it by creating a new package from the **Package Manager**
+In order to avoid this behaviour, you can copy all the fields provided by the superTypes components.
 
-![foundation_components_package](assets/foundation_components_package.png)
+In the [previous section (Components)](../3_components/Readme.md) we showed how to download this components.
 
-Provide a name and a version and create the package.
-
-Now you will see it at the top of list. Click in edit and open the tab `Filters`
-
-![foundation_components_edit](assets/foundation_components_edit.png)
-
-With the filters you can specify which paths that package is going to contain.
-<br>
-In this case we just to select the `foundation components` so we just type the path in there.
-
-Once you are done, click on `Save`, then `Build`, and now you are ready to download it.
-
-So if you want to customize one of this components, you can create a new component and copy the files of the desired component inside.
-
-Now you can check all the tabs and fields added by default inside the `basicpage/v1/basicpage/tabs`.
+&#9888; Notice that the core component extends the functionality of the foundation component by adding the tabs `basic` and `socialmedia`, so take a look at that one instead if you want to override those tabs.
 
 ### Create a new Page
 
