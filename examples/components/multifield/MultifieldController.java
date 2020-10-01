@@ -14,15 +14,15 @@ public class PruebaMultiModel {
     @SlingObject
     private Resource currentResource;
 
-    private ArrayList<String> lista;
+    private ArrayList<String> list;
 
     public ArrayList<String> getLista() {
-        return lista;
+        return list;
     }
 
     @PostConstruct
     protected void init() {
-        this.lista = new ArrayList<>();
+        this.list = new ArrayList<>();
         String text;
 
         Resource multi = currentResource.getChild("list");
@@ -30,12 +30,8 @@ public class PruebaMultiModel {
             Iterator<Resource> children = multi.listChildren();
             while (children.hasNext()) {
                 text = children.next().getValueMap().get("text", String.class);
-                lista.add(text);
+                list.add(text);
             }
         }
-
-
-
     }
-
 }
