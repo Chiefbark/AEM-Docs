@@ -9,3 +9,4 @@ List of useful examples of AEM components, page properties, templates, etc.
 
 - [checkbox](components/checkbox)
 - [textfield](components/textfield)
+- [multifield](components/multifield)
