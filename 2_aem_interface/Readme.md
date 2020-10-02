@@ -14,6 +14,7 @@ We will take a look to the AEM web and check where and how is the data stored, a
   - [Tagging](#tagging)
   - [Templates](#templates)
   - [Content Fragment Models](#content-fragment-models)
+  - [Other Useful Links](#other-useful-links)
 
 ## Start Page
 
@@ -84,6 +85,51 @@ If we go to `Assets` (side panel of the Tools) and click on the `Content Fragmen
 ![aem_cf](assets/aem_cf.png)
 
 We can see the content fragments of all our projects, edit and create them. Anyway, as same as templates, we will create them coding.
+
+## Other Useful Links
+
+- Bundles
+  
+  ![useful_url_bundles](assets/useful_url_bundles.png)
+  Can be found under the path `http://localhost:4502/system/console/bundles`
+
+
+
+- Components
+  
+  ![useful_url_components](assets/useful_url_components.png)
+  Can be found under the path `http://localhost:4502/system/console/components`
+
+  
+
+- Config Manager
+
+  ![useful_url_configMgr](assets/useful_url_configMgr.png)
+  Can be found under the path `http://localhost:4502/system/console/configMgr`
+
+  
+
+- CRX Explorer
+  
+  ![useful_url_crxExplorer](assets/useful_url_crxExplorer.png)
+  Can be found under the path `http://localhost:4502/crx/explorer/index.jsp`
+
+
+
+- QueryBuilder Debugger
+  
+  ![useful_url_queryBuilderDebugger](assets/useful_url_queryBuilderDebugger.png)
+  Can be found under the path `http://localhost:4502/libs/cq/search/content/querydebug.html`
+
+  Very useful tool to create and preview queries to the database. We will be using it in the [chapter 8 (Query Builder)](../8_query_builder/Readme.md).
+
+- Replication Agents
+  
+  ![useful_url_replicationAgents](assets/useful_url_replicationAgents.png)
+  Can be found under the path `http://localhost:4502/etc/replication/agents.author.html`
+
+  From this path, you can manage how the author interacts with other instances, like the `Publish instance` or the `Dispatcher instance`.
+
 
 ---
 
